@@ -20,4 +20,3 @@ jobs:
 
       - name: Build Solution
         run: dotnet build CSharpTesting.slnx --configuration Release --no-restore
-		
