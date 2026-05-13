@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="Bowling/Bowling.csproj" />
+    <Project Path="ConnectFour/ConnectFour.csproj" />
+    <Project Path="Exploration/Exploration.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="Bowling.Tests/Bowling.Tests.csproj" />
+    <Project Path="ConnectFour.Tests/ConnectFour.Tests.csproj" />
+    <Project Path="Exploration.Tests/Exploration.Tests.csproj" />
+  </Folder>
+</Solution>
