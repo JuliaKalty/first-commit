@@ -3,21 +3,21 @@ Name: .NET CI
 on: [push]
 
 jobs:
-	build:
-		runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-		steps:
-			- name: Checkout
-			  uses: action/checkout@v6
+    steps:
+      - name: Checkout
+        uses: action/checkout@v6
 
-			- name: Setup .NET
-			  uses: actions/setup-dotnet@v5
-				with: 
-					dotnet-version: "10.1.x"
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
+        with: 
+          dotnet-version: "10.1.x"
 
-			- name: Restore dependencies
-				run: dotnet restore CSharpTesting.slnx
+      - name: Restore dependencies
+        run: dotnet restore CSharpTesting.slnx
 
-			- name: Build Solution
-				run: dotnet build CSharpTesting.slnx --configuration Release --no-restore
+      - name: Build Solution
+        run: dotnet build CSharpTesting.slnx --configuration Release --no-restore
 		
