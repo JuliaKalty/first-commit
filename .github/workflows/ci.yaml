@@ -2,9 +2,22 @@ Name: .NET CI
 
 on: [push]
 
-Jobs:
-	helloworld:
+jobs:
+	build:
 		runs-on: ubuntu-latest
+
 		steps:
-			- run:echo "Hello World"
+			- name: Checkout
+			  uses: action/checkout@v6
+
+			- name: Setup .NET
+			  uses: actions/setup-dotnet@v5
+				with: 
+					dotnet-version: "10.1.x"
+
+			- name: Restore dependencies
+				run: dotnet restore CSharpTesting.slnx
+
+			- name: Build Solution
+				run: dotnet build CSharpTesting.slnx --configuration Release --no-restore
 		
