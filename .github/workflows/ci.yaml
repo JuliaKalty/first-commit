@@ -20,3 +20,28 @@ jobs:
 
       - name: Build Solution
         run: dotnet build CSharpTesting.slnx --configuration Release --no-restore
+jobs:
+
+ test:
+  runs-on: ubuntu-latest
+
+  steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v5
+        with: 
+          dotnet-version: "10.0.x"
+
+      - name: Restore dependencies
+        run: dotnet restore CSharpTesting.slnx
+
+      - name: Test Exploration
+        run: otnet build Exploration.Tests\Exploration.Test.csproj --configuration Release --no-restore --verbosity normal
+        
+      - name: Test Exploration
+        run: otnet build Bowling.Tests\Bowling.Test.csproj --configuration Release --no-restore --verbosity normal
+        
+      - name: Test Exploration
+        run: otnet build ConnectFour.Tests\ConnectFourGameTests.csproj --configuration Release --no-restore --verbosity normal
